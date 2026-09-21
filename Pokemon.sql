@@ -11,8 +11,6 @@ region varchar(100),
 badge_count int
 );
 
-
-
 create table Pokemon(
 pokemon_id int auto_increment primary key,
 pokemon_name varchar(255) not null,
@@ -109,7 +107,7 @@ COUNT(Battle.participant) AS battle_count
 FROM Trainer
 LEFT JOIN Battle ON Battle.participant = Trainer.trainer_id
 group by Trainer.trainer_name
-order by battle_count;
+order by battle_count DESC;
 
 SELECT Trainer.trainer_name,
 COUNT(Battle.outcome) AS win_count
